@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  db:
+    container_name: db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+     MSSQL_SA_PASSWORD: K3yboaRd!23
+     ACCEPT_EULA: Y
+     MSSQL_PID: Express # aqui você define a edição do SQL Server que deseja (Express)
+     MSSQL_DATABASE: CP_02
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
+    networks:
+      - my-network
+      
+  api:
+    build: "./DevOpsCP02"
+    container_name: api
+    networks:
+      - my-network
+    depends_on:
+      - db
+  
+  web:
+    build: "./checkpoint"
+    container_name: web
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+    depends_on:
+      - api
+
+networks:
+  my-network:
+    driver: bridge
+volumes:
+  data:
