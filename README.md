@@ -1,5 +1,6 @@
 # checkpoint-devops
 <p align="right"><s>INCOMPLETO</s></p>
+
 Abaixo estão os links para os arquivos relacionados ao docker:
 
 [**Dockerfile**](https://github.com/juniorcavicchioli/checkpoint-devops/blob/main/DevOpsCP02/Dockerfile) da API em Java.
