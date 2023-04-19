@@ -10,13 +10,14 @@ import lombok.NonNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "TB_USUARIO")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id_usuario", nullable = false)
     private Long id;
-    @Column(nullable = false)
+    @Column(name = "ds_email",nullable = false)
     private String email;
-    @Column(nullable = false)
+    @Column(name = "ds_password",nullable = false)
     private String password;
 }
